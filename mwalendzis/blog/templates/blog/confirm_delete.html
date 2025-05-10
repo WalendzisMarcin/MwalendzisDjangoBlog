@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+Usuń post
+{% endblock %}
+
+{% block content %}
+<h1>Czy na pewno chcesz usunąć post?</h1>
+<p><strong>{{ post.title }}</strong></p>
+<p>{{ post.content }}</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Tak, usuń</button>
+    <a class="button" href="{% url 'post_list' %}">Anuluj</a>
+</form>
+{% endblock %}

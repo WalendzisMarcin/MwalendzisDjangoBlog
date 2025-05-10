@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}
+Lista postów
+{% endblock %}
+
+{% block content %}
+<h1>Lista postów - {{ user.username }}</h1>
+{% for post in posts %}
+<h2>{{ post.title }}</h2>
+<p>{{ post.content }}</p>
+<small>Dodano: {{ post.created_at }}</small>
+
+<div>
+  <a class="button" href="{% url 'edit_post' post.id %}">Edytuj</a>
+  <a class="button" href="{% url 'delete_post' post.id %}">Usuń</a>
+</div>
+<hr>
+{% empty %}
+<p>Brak postów.</p>
+{% endfor %}
+{% endblock %}

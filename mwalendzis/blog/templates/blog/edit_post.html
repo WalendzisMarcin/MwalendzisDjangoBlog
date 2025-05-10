@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+Edytuj post
+{% endblock %}
+
+{% block content %}
+<h1>Edytuj post</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Zapisz zmiany</button>
+</form>
+{% endblock %}
